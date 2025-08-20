@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6 pt-24 pb-4 px-4 md:px-56 lg:px-[35rem]">
-    <x-auth-header :title="__('Sign in to Coinex')" :description="__('')" />
+    <x-auth-header :title="__('Sign in to Coinex Lab')" :description="__('')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
@@ -24,7 +24,7 @@
 
         <div class="flex items-center justify-end">
             <flux:button variant="primary" type="submit"
-                class="w-full rounded-xs bg-[#ffde02]! text-black! font-normal!">{{ __('Continue') }}</flux:button>
+                class="w-full rounded-xs bg-accent! text-black! font-normal!">{{ __('Continue') }}</flux:button>
         </div>
     </form>
 

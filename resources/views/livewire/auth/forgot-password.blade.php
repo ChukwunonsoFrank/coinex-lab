@@ -11,7 +11,7 @@
              class="py-3 px-4 block w-full border font-medium text-gray-600 border-gray-200 rounded-sm text-sm disabled:opacity-50 disabled:pointer-events-none"
              required placeholder="Email">
 
-         <flux:button variant="primary" type="submit" class="w-full rounded-xs bg-[#ffde02]! text-black! font-normal!">{{ __('Email Password Reset Link') }}
+         <flux:button variant="primary" type="submit" class="w-full rounded-xs bg-accent! text-black! font-normal!">{{ __('Email Password Reset Link') }}
          </flux:button>
      </form>
 

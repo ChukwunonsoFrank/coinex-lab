@@ -221,7 +221,7 @@
             <div class="border-y pb-12 border-t-[#141d221f]">
                 <div class="mt-12">
                     <a href="{{ route('home') }}">
-                        <p class="font-condensed text-4xl font-medium">exness</p>
+                        <img class="w-32" src="{{ asset('assets/logo.png') }}" alt="Coinex logo">
                     </a>
                 </div>
 

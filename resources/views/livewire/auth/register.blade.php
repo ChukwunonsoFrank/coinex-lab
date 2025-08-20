@@ -39,7 +39,7 @@
         </div>
 
         <div class="flex items-center justify-end">
-            <flux:button type="submit" variant="primary" class="w-full rounded-xs bg-[#ffde02]! text-black! font-normal!">
+            <flux:button type="submit" variant="primary" class="w-full rounded-xs bg-accent! text-black! font-normal!">
                 {{ __('Create Account') }}
             </flux:button>
         </div>

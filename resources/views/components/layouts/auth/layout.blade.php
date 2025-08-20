@@ -44,36 +44,39 @@
                     <div class="flex items-center">
                         <div class="shrink-0 flex items-center space-x-2">
                             <a href="{{ route('home') }}">
-                                <p class="font-condensed text-4xl font-medium">ex</p>
+                                <img class="w-32" src="{{ asset('assets/logo.png') }}" alt="Coinex logo">
                             </a>
                         </div>
                         <div class="hidden lg:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="{{ route('about') }}"
-                                    class="rounded-md px-3 py-2 text-md font-medium text-zinc-700"
-                                    aria-current="page">About Us</a>
+                                <a href="/#features"
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">Features</a>
+                                <a href="/#why-coinex"
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">Why Coinex</a>
+                                <a href="/#how-to-trade"
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">How to trade</a>
+                                <a href="/#faqs"
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">FAQs</a>
                                 <a href="{{ route('terms') }}"
-                                    class="rounded-md px-3 py-2 text-md font-medium text-zinc-700">Terms</a>
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">Terms</a>
                                 <a href="{{ route('privacy') }}"
-                                    class="rounded-md px-3 py-2 text-md font-medium text-zinc-700">Privacy</a>
+                                    class="rounded-md px-3 py-2 text-md font-normal text-black">Privacy</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="hidden lg:block">
-                        <div class="ml-4 flex space-x-2 items-center md:ml-6">
+                        <div class="ml-4 flex space-x-4 items-center md:ml-6">
                             <div>
                                 <div class="language-select language-select--style ">
                                     <div class="gtranslate_wrapper"></div>
                                 </div>
                             </div>
-                            <a href="{{ route('login') }}"
-                                class="rounded-xs border border-accent px-3.5 py-2.5 text-sm font-medium text-accent shadow-xs hover:bg-accent hover:text-white">Log
-                                In</a>
                             <a href="{{ route('register') }}"
-                                class="rounded-xs bg-accent px-3.5 py-2.5 text-sm font-medium text-white shadow-xs hover:bg-accent-hover">Sign
-                                Up</a>
+                                class="rounded-xs bg-accent px-3.5 py-2.5 text-sm font-medium text-black shadow-xs hover:bg-accent-hover">Register</a>
+                            <a href="{{ route('login') }}"
+                                class="rounded-xs px-3.5 py-2.5 text-sm font-medium bg-[#6c859514] text-[#141d22] shadow-xs">Login</a>
                         </div>
                     </div>
 
@@ -85,7 +88,7 @@
                         </div>
                         <a href="{{ route('login') }}">
                             <div>
-                                <p class="text-[15px]">Sign in</p>
+                                <p class="text-[15px]">Login</p>
                             </div>
                         </a>
                         <!-- Mobile menu button -->
@@ -123,6 +126,54 @@
                 x-transition:leave-end="transform opacity-0 scale-95" class="lg:hidden h-screen" id="mobile-menu">
                 <div class="space-y-1 px-4 pt-2 pb-3 sm:px-3">
                     <div>
+                        <a href="/#features" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
+                            class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
+                            Features
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="mt-0.5 lucide lucide-chevron-right-icon lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/#why-coinex" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
+                            class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
+                            Why Coinex
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="mt-0.5 lucide lucide-chevron-right-icon lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/#how-to-trade" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
+                            class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
+                            How to trade
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="mt-0.5 lucide lucide-chevron-right-icon lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/#faqs" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
+                            class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
+                            FAQs
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="mt-0.5 lucide lucide-chevron-right-icon lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div>
                         <a href="{{ route('terms') }}"
                             class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
                             Terms and
@@ -150,13 +201,12 @@
 
                     <div class="flex items-center mt-8 space-x-4 justify-center">
                         <div>
-                            <a href="{{ route('login') }}"
-                                class="px-6 py-3 text-base font-semibold rounded-sm bg-[#ffde02] text-black">Register</a>
+                            <a href="{{ route('register') }}"
+                                class="px-6 py-3 text-base font-semibold rounded-sm bg-[#00bcff] text-black">Register</a>
                         </div>
                         <div>
                             <a href="{{ route('login') }}"
-                                class="px-6 py-3 text-base font-semibold rounded-sm bg-[#6c859514] text-[#141d22]">Sign
-                                in</a>
+                                class="px-6 py-3 text-base font-semibold rounded-sm bg-[#6c859514] text-[#141d22]">Login</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +221,7 @@
             <div class="border-y pb-12 border-t-[#141d221f]">
                 <div class="mt-12">
                     <a href="{{ route('home') }}">
-                        <p class="font-condensed text-4xl font-medium">exness</p>
+                        <img class="w-32" src="{{ asset('assets/logo.png') }}" alt="Coinex logo">
                     </a>
                 </div>
 
