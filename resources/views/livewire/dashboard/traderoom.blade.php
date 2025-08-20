@@ -345,7 +345,7 @@
             },
 
             calculateTimeLeftTillNextCheckpoint(checkpoint) {
-                let difference = checkpoint - this.$wire.getCurrentTimestamp();
+                let difference = checkpoint - Date.now();
 
                 if (0 > difference) {
                     return {
@@ -406,7 +406,7 @@
                 this.assetIcon = `/${this.$wire.assetIcon}`
                 this.sentiment = this.$wire.sentiment;
 
-                if (this.$wire.getCurrentTimestamp() > this.$wire.timerCheckpoint) {
+                if (Date.now() > this.$wire.timerCheckpoint) {
                     this.$wire.refreshAssetData();
                     this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire.timerCheckpoint);
                     this.asset = this.$wire.asset;
