@@ -418,6 +418,7 @@
                 this.timer = formatted;
 
                 this.toggleSearchingForSignals(this.timeLeft.minutes, this.timeLeft.seconds);
+                console.log(this.timeLeft);
             },
 
             // Clean up when component is destroyed
