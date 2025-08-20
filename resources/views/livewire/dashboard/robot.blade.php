@@ -196,7 +196,7 @@
                 </div>
 
                 <div x-cloak x-show="$store.robotPage.isStrategyListOverlayOpen"
-                    class="fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 pb-36 z-20 bg-dashboard">
+                    class="fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 pb-36 overflow-scroll scrollbar-hide z-20 bg-dashboard">
                     <div class="flex items-center mb-6">
                         <div class="flex-1">
                             <h2 class="text-white font-semibold md:text-xl lg:text-2xl">Strategy</h2>
