@@ -409,9 +409,9 @@
                 if (Date.now() > this.$wire.timerCheckpoint) {
                     this.$wire.refreshAssetData();
                     this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire.timerCheckpoint);
-                    this.asset = $this.$wire.asset;
-                    this.assetIcon = $this.$wire.assetIcon;
-                    this.sentiment = $this.$wire.sentiment;
+                    this.asset = this.$wire.asset;
+                    this.assetIcon = this.$wire.assetIcon;
+                    this.sentiment = this.$wire.sentiment;
                 }
 
                 let formatted = this.formatTimeLeft(this.timeLeft.minutes, this.timeLeft.seconds);
