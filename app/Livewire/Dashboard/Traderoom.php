@@ -64,6 +64,11 @@ class Traderoom extends Component
         $this->isStopRobotConfirmationModalOpen = !$this->isStopRobotConfirmationModalOpen;
     }
 
+    public function getCurrentTimestamp()
+    {
+        return now()->getTimestampMs();
+    }
+
     public function normalizeAmount(int $amount): int | float
     {
         return $amount / 100;

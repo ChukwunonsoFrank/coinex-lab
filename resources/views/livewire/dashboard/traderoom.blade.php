@@ -345,7 +345,7 @@
             },
 
             calculateTimeLeftTillNextCheckpoint(checkpoint) {
-                let difference = checkpoint - Date.now();
+                let difference = checkpoint - this.$wire.getCurrentTimestamp();
 
                 if (0 > difference) {
                     return {
@@ -406,7 +406,7 @@
                 this.assetIcon = `/${this.$wire.assetIcon}`
                 this.sentiment = this.$wire.sentiment;
 
-                if (Date.now() > this.$wire.timerCheckpoint) {
+                if (this.$wire.getCurrentTimestamp() > this.$wire.timerCheckpoint) {
                     this.$wire.refreshAssetData();
                     this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire.timerCheckpoint);
                     this.asset = this.$wire.asset;
@@ -418,7 +418,6 @@
                 this.timer = formatted;
 
                 this.toggleSearchingForSignals(this.timeLeft.minutes, this.timeLeft.seconds);
-                console.log(this.timeLeft);
             },
 
             // Clean up when component is destroyed
