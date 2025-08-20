@@ -92,6 +92,18 @@
                                     <option value="48" class="text-gray-700">
                                         48 hours
                                     </option>
+                                    <option value="72" class="text-gray-700">
+                                        72 hours
+                                    </option>
+                                    <option value="96" class="text-gray-700">
+                                        96 hours
+                                    </option>
+                                    <option value="120" class="text-gray-700">
+                                        120 hours
+                                    </option>
+                                    <option value="168" class="text-gray-700">
+                                        168 hours
+                                    </option>
                                 </select>
                                 <span
                                     class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500">
