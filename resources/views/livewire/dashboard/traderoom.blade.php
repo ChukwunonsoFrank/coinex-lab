@@ -412,6 +412,9 @@
                     this.asset = this.$wire.asset;
                     this.assetIcon = this.$wire.assetIcon;
                     this.sentiment = this.$wire.sentiment;
+                    const offset = (5 * 60 * 1000) + (8 * 1000);
+                    let nextCheckpoint = this.$wire.timerCheckpoint + offset;
+                    this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(nextCheckpoint);
                 }
 
                 let formatted = this.formatTimeLeft(this.timeLeft.minutes, this.timeLeft.seconds);
