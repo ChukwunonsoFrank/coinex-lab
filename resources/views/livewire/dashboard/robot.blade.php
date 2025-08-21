@@ -110,7 +110,7 @@
                         <label for="input-label" class="block text-xs font-medium mb-2 text-zinc-300">Exchange</label>
                         <div
                             class="w-full text-sm self-center text-center border border-white/10 bg-transparent py-2.5 sm:py-3 px-4 rounded-lg text-[#FFFFFF] focus:outline-0">
-                            <img class="inline" src="{{ asset('assets/icons/binance.svg') }}"
+                            <img class="inline" src="{{ asset('assets/icons/cryptodotcom.svg') }}"
                                 alt="cryptodotcom-logo">
                         </div>
                     </div>
