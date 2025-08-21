@@ -18,8 +18,6 @@ class Traderoom extends Component
 
     public $timerCheckpoint;
 
-    public bool $isStopRobotConfirmationModalOpen = false;
-
     public $amount;
 
     public string $accountType = '';
@@ -57,11 +55,6 @@ class Traderoom extends Component
         $this->assetIcon = $this->activeBot['asset_image_url'];
         $this->sentiment = $this->activeBot['sentiment'];
         $this->timerCheckpoint = $this->activeBot['timer_checkpoint'];
-    }
-
-    public function toggleStopRobotConfirmationModal()
-    {
-        $this->isStopRobotConfirmationModalOpen = !$this->isStopRobotConfirmationModalOpen;
     }
 
     public function normalizeAmount(int $amount): int | float

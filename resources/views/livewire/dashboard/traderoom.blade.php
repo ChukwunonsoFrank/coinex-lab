@@ -154,7 +154,7 @@
                     </div>
 
                     <div>
-                        <button wire:click="toggleStopRobotConfirmationModal()" type="button"
+                        <button x-on:click="toggleStopRobotConfirmationModal()" type="button"
                             class="py-2.5 cursor-pointer px-4 w-full md:px-6 text-center gap-x-2 text-sm font-semibold rounded-lg bg-accent text-black focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
                             Stop the robot
                         </button>
@@ -197,14 +197,14 @@
                 </div>
             </div>
 
-            <div wire:cloak wire:show="isStopRobotConfirmationModalOpen"
+            <div x-cloak x-show="isStopRobotConfirmationModalOpen"
                 class="fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20 bg-dashboard">
                 <div class="w-full h-full flex items-center justify-center">
                     <div class="max-w-sm mx-auto flex flex-col bg-[#26252a] rounded-lg pointer-events-auto">
                         <div class="flex justify-between items-center py-3 px-4 dark:border-neutral-700">
                             <h3 class="font-bold text-gray-800 dark:text-white">
                             </h3>
-                            <button wire:click="toggleStopRobotConfirmationModal()" type="button"
+                            <button x-on:click="toggleStopRobotConfirmationModal()" type="button"
                                 class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
                                 aria-label="Close">
                                 <span class="sr-only">Close</span>
@@ -230,7 +230,7 @@
                                 </button>
                             </div>
                             <div class="mt-3">
-                                <button wire:click="toggleStopRobotConfirmationModal()" type="button"
+                                <button x-on:click="toggleStopRobotConfirmationModal()" type="button"
                                     class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs cursor-pointer hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
                                     data-hs-overlay="#hs-vertically-centered-modal">
                                     Cancel
@@ -322,6 +322,7 @@
             timeLeft: {},
             timerInterval: null,
             isBotSearchingForSignal: '',
+            isStopRobotConfirmationModalOpen: false,
             asset: '',
             assetIcon: '',
             sentiment: '',
@@ -342,6 +343,10 @@
                     clearInterval(this.timerInterval);
                     this.timerInterval = null;
                 }
+            },
+
+            toggleStopRobotConfirmationModal() {
+                this.isStopRobotConfirmationModalOpen = !this.isStopRobotConfirmationModalOpen;
             },
 
             calculateTimeLeftTillNextCheckpoint(checkpoint) {
