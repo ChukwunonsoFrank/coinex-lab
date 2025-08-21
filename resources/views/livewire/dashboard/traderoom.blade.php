@@ -410,7 +410,7 @@
                     this.$wire.refreshAssetData();
                     this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire.timerCheckpoint);
                     this.asset = this.$wire.asset;
-                    this.assetIcon = this.$wire.assetIcon;
+                    this.assetIcon = `/${this.$wire.assetIcon}`;
                     this.sentiment = this.$wire.sentiment;
                     let nextCheckpoint = new Date(Number(this.$wire.timerCheckpoint)).getTime() + (5 * 60 + 8) * 1000;
                     this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(nextCheckpoint);
