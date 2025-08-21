@@ -223,7 +223,7 @@
                         </div>
                         <div class="py-3 px-4">
                             <div>
-                                <button type="button" wire:click="stopRobot()" type="button"
+                                <button type="button" x-on:click="destroy()" wire:click="stopRobot()" type="button"
                                     wire:loading.attr="disabled"
                                     class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent-hover focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                     Stop robot
