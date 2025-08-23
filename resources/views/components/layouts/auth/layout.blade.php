@@ -34,6 +34,7 @@
             display: none !important;
         }
     </style>
+    <script src="//code.jivosite.com/widget/haRE265EfB" async></script>
 </head>
 
 <body>
@@ -52,8 +53,6 @@
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a href="/#features"
                                     class="rounded-md px-3 py-2 text-md font-normal text-black">Features</a>
-                                <a href="/#why-coinex"
-                                    class="rounded-md px-3 py-2 text-md font-normal text-black">Why Coinex</a>
                                 <a href="/#how-to-trade"
                                     class="rounded-md px-3 py-2 text-md font-normal text-black">How to trade</a>
                                 <a href="/#faqs"
@@ -74,7 +73,7 @@
                                 </div>
                             </div>
                             <a href="{{ route('register') }}"
-                                class="rounded-xs bg-accent px-3.5 py-2.5 text-sm font-medium text-black shadow-xs hover:bg-accent-hover">Register</a>
+                                class="rounded-xs bg-accent px-3.5 py-2.5 text-sm font-medium text-black shadow-xs">Register</a>
                             <a href="{{ route('login') }}"
                                 class="rounded-xs px-3.5 py-2.5 text-sm font-medium bg-[#6c859514] text-[#141d22] shadow-xs">Login</a>
                         </div>
@@ -129,18 +128,6 @@
                         <a href="/#features" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
                             class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
                             Features
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="mt-0.5 lucide lucide-chevron-right-icon lucide-chevron-right">
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="/#why-coinex" x-on:click="isMobileMenuOpen = !isMobileMenuOpen"
-                            class="inline-flex gap-x-3 items-center py-3 text-base text-black" aria-current="page">
-                            Why Coinex
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round"
@@ -226,7 +213,7 @@
                 </div>
 
                 <div class="text-start">
-                    <h4 class="font-condensed mt-4 text-black text-sm leading-8 font-medium">Resources
+                    <h4 class="font-condensed mt-4 text-black text-sm leading-8 font-medium">Company
                     </h4>
                     <div>
                         <a class="text-[13px] text-[#141d2299]" href="#">Terms & Conditions</a>

@@ -21,7 +21,9 @@
     </div>
 
     <div id="features" class="px-4 py-16 w-full bg-[#070e20] text-center">
-        <h2 class="font-condensed text-white text-3xl md:text-4xl px-8 md:px-32 lg:px-[32rem] leading-8 md:leading-10 font-medium">Thrive in the
+        <h2
+            class="font-condensed text-white text-3xl md:text-4xl px-8 md:px-32 lg:px-[32rem] leading-8 md:leading-10 font-medium">
+            Thrive in the
             forex and
             crypto markets</h2>
         <p class="px-6 mt-3 text-base leading-5 text-[#edf0f299]">Best in class strategies powered by AI to make trading
@@ -100,14 +102,16 @@
                         Best-in-class
                         security
                     </h3>
-                    <p class="px-6 mt-0.5 text-sm text-[#edf0f299]">Trade knowing your funds are kept safe with ironclad data protection.</p>
+                    <p class="px-6 mt-0.5 text-sm text-[#edf0f299]">Trade knowing your funds are kept safe with ironclad
+                        data protection.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="px-6 py-10 pb-24 w-full bg-[#070e20] text-center">
-        <h2 class="font-condensed text-white text-3xl lg:text-4xl px-8 leading-8 font-medium">Trade assets from global markets</h2>
+        <h2 class="font-condensed text-white text-3xl lg:text-4xl px-8 leading-8 font-medium">Trade assets from global
+            markets</h2>
         <p class="px-6 mt-3 text-base leading-5 text-[#edf0f299]">Capitalize on every opportunity with the world’s most
             popular assets.</p>
 
@@ -140,8 +144,10 @@
                             <tbody class="divide-y-[0.1px] divide-[#edf0f299]">
                                 <tr>
                                     <td class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
-                                        <img class="inline" src="{{ asset('assets/icons/btc.svg') }}" alt="" srcset="">
-                                        BTCUSDT</td>
+                                        <img class="inline" src="{{ asset('assets/icons/btc.svg') }}" alt=""
+                                            srcset="">
+                                        BTCUSDT
+                                    </td>
                                     <td
                                         class="hidden md:block px-6 py-4 whitespace-nowrap text-start text-sm text-white">
                                         1:400</td>
@@ -155,8 +161,10 @@
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
-                                        <img class="inline" src="{{ asset('assets/icons/eth.svg') }}" alt="" srcset="">
-                                        ETHUSDT</td>
+                                        <img class="inline" src="{{ asset('assets/icons/eth.svg') }}" alt=""
+                                            srcset="">
+                                        ETHUSDT
+                                    </td>
                                     <td
                                         class="hidden md:block px-6 py-4 whitespace-nowrap text-start text-sm text-white">
                                         1:100</td>
@@ -170,8 +178,10 @@
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
-                                        <img class="inline" src="{{ asset('assets/icons/sol.svg') }}" alt="" srcset="">
-                                        SOLUSDT</td>
+                                        <img class="inline" src="{{ asset('assets/icons/sol.svg') }}" alt=""
+                                            srcset="">
+                                        SOLUSDT
+                                    </td>
                                     <td
                                         class="hidden md:block px-6 py-4 whitespace-nowrap text-start text-sm text-white">
                                         Customizable</td>
@@ -185,8 +195,10 @@
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
-                                        <img class="inline" src="{{ asset('assets/icons/dashboard/EURUSD_OTC.svg') }}" alt="" srcset="">
-                                        EURUSD</td>
+                                        <img class="inline" src="{{ asset('assets/icons/dashboard/EURUSD_OTC.svg') }}"
+                                            alt="" srcset="">
+                                        EURUSD
+                                    </td>
                                     <td
                                         class="hidden md:block px-6 py-4 whitespace-nowrap text-start text-sm text-white">
                                         1:400</td>
@@ -199,9 +211,12 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
-                                        <img class="inline" src="{{ asset('assets/icons/dashboard/GBPUSD_OTC.svg') }}" alt="" srcset="">
-                                        GBPUSD</td>
+                                    <td
+                                        class="px-4 py-4 whitespace-nowrap text-start text-sm font-semibold text-white">
+                                        <img class="inline" src="{{ asset('assets/icons/dashboard/GBPUSD_OTC.svg') }}"
+                                            alt="" srcset="">
+                                        GBPUSD
+                                    </td>
                                     <td
                                         class="hidden md:block px-6 py-4 whitespace-nowrap text-start text-sm text-white">
                                         1:20</td>
@@ -232,64 +247,88 @@
         </div>
     </div>
 
-    <div id="why-coinex" class="px-4 md:px-14 lg:px-48 py-16 w-full text-center">
-        <h2 class="font-condensed text-black text-3xl px-8 leading-8 font-medium">Why trade with Coinex</h2>
-        <p class="px-6 md:px-24 mt-3 text-base leading-5 text-black">
-            From bitcoin to USD/GBP, experience crypto and forex trading with better-than-market conditions.
+    <div class="px-4 md:px-14 lg:px-48 w-full mt-16 h-[35rem] text-center">
+        <h2 class="font-condensed text-black text-3xl px-8 leading-8 font-medium">Market Data</h2>
+        <p class="px-6 md:px-24 lg:px-80 mt-3 text-base leading-5 text-black">
+            Get an overview of global markets performance, including change values, Open, High, Low, and Close values
+            for selected financial instruments.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div class="border border-[#0000001f] rounded-lg p-6 text-left">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fast-forward-icon lucide-fast-forward"><path d="M12 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 12 18z"/><path d="M2 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 2 18z"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-medium font-condensed mt-4">Fast and reliable execution</h4>
-                    <p class="text-sm mt-2">
-                        Trade the crypto markets with the lowest slippage rates on the market, and keep more of what you
-                        make.
-                    </p>
-                </div>
-            </div>
-
-            <div class="border border-[#0000001f] rounded-lg p-6 text-left">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-medium font-condensed mt-4">Lightning-fast transactions</h4>
-                    <p class="text-sm mt-2">
-                        Trade at the speed of opportunity. Our AI platform executes transactions instantly, ensuring you
-                        never miss a market move.
-                    </p>
-                </div>
-            </div>
-
-            <div class="border border-[#0000001f] rounded-lg p-6 text-left">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-medium font-condensed mt-4">Enterprise-grade security</h4>
-                    <p class="text-sm mt-2">
-                        Your assets and data are protected with bank-level encryption and advanced AI threat detection. Trade
-                        with confidence knowing your investments are safeguarded 24/7.
-                    </p>
-                </div>
-            </div>
-
-            <div class="border border-[#0000001f] rounded-lg p-6 text-left">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-medium font-condensed mt-4">Earn referral rewards</h4>
-                    <p class="text-sm mt-2">
-                        Invite friends and grow your network while you trade. Our platform rewards you with bonuses for every successful referral. The more you share, the more you earn—simple and effortless.
-                    </p>
-                </div>
-            </div>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container mt-6">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                {
+                    "colorTheme": "light",
+                    "locale": "en",
+                    "largeChartUrl": "",
+                    "isTransparent": false,
+                    "showSymbolLogo": true,
+                    "backgroundColor": "rgba(255, 255, 255, 1)",
+                    "support_host": "https://www.tradingview.com",
+                    "width": "100%",
+                    "height": "100%",
+                    "symbolsGroups": [{
+                            "name": "Forex",
+                            "symbols": [{
+                                    "name": "FX:EURUSD",
+                                    "displayName": "EUR to USD"
+                                },
+                                {
+                                    "name": "FX:GBPUSD",
+                                    "displayName": "GBP to USD"
+                                },
+                                {
+                                    "name": "FX:USDJPY",
+                                    "displayName": "USD to JPY"
+                                },
+                                {
+                                    "name": "FX:USDCHF",
+                                    "displayName": "USD to CHF"
+                                },
+                                {
+                                    "name": "FX:AUDUSD",
+                                    "displayName": "AUD to USD"
+                                },
+                                {
+                                    "name": "FX:USDCAD",
+                                    "displayName": "USD to CAD"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Crypto",
+                            "symbols": [{
+                                    "name": "BINANCE:BTCUSDT",
+                                    "displayName": "BTC to USDT"
+                                },
+                                {
+                                    "name": "BINANCE:ETHUSDT",
+                                    "displayName": "ETH to USDT"
+                                },
+                                {
+                                    "name": "BINANCE:SOLUSDT",
+                                    "displayName": "SOL to USDT"
+                                },
+                                {
+                                    "name": "BINANCE:XRPUSDT",
+                                    "displayName": "XRP to USDT"
+                                },
+                                {
+                                    "name": "BINANCE:DOGEUSDT",
+                                    "displayName": "DOGE to USDT"
+                                },
+                                {
+                                    "name": "BINANCE:LINKUSDT",
+                                    "displayName": "LINK to USDT"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            </script>
         </div>
+        <!-- TradingView Widget END -->
     </div>
 
     {{-- <div class="px-4 py-16 w-full text-center">
@@ -335,13 +374,14 @@
         </div>
     </div> --}}
 
-    <div id="how-to-trade" class="text-center w-full mt-14">
+    <div id="how-to-trade" class="text-center w-full mt-52">
         <h2 class="font-condensed text-black text-3xl px-8 leading-8 font-medium">How to trade in 3 steps</h2>
     </div>
 
     <div class="relative h-[48rem] md:h-[38rem]">
         <img class="mt-8 absolute md:h-96 md:w-full md:object-cover"
-            src="{{ asset('assets/images/business-man-looking-at-phone-smiling.jpg') }}" alt="" srcset="">
+            src="{{ asset('assets/images/business-man-looking-at-phone-smiling.jpg') }}" alt=""
+            srcset="">
         <div class="px-4 md:px-14 lg:px-48 absolute mt-56 md:mt-80 w-full">
             <div class="flex flex-col md:flex-row w-full rounded-lg bg-[#f8f9f9]">
                 <div
@@ -362,13 +402,83 @@
                 <div class="text-start p-6">
                     <p class="text-[#141d2299] text-sm">Step 3</p>
                     <h4 class="font-medium font-condensed mt-4 md:text-lg">Earn real profits</h4>
-                    <p class="text-sm md:text-[15px] mt-2 md:mt-3">Make a deposit and select the 'Live account' option to start trading and earning profit.</p>
+                    <p class="text-sm md:text-[15px] mt-2 md:mt-3">Make a deposit and select the 'Live account' option
+                        to start trading and earning profit.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="faqs" class="px-4 md:px-14 lg:px-48 text-start w-full">
+    <div class="px-4 md:px-14 lg:px-48 w-full h-[35rem] text-center">
+        <h2 class="font-condensed text-black text-3xl px-8 leading-8 font-medium">Forex Cross Rates</h2>
+        <p class="px-6 md:px-24 lg:px-80 mt-3 text-base leading-5 text-black">
+            Get real-time access to quotes of selected currencies in comparison to other major currencies.
+        </p>
+
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container mt-6">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js"
+                async>
+                {
+                    "colorTheme": "light",
+                    "isTransparent": false,
+                    "locale": "en",
+                    "currencies": [
+                        "EUR",
+                        "USD",
+                        "JPY",
+                        "GBP",
+                        "CHF",
+                        "AUD",
+                        "CAD",
+                        "NZD",
+                        "CNY"
+                    ],
+                    "backgroundColor": "#ffffff",
+                    "width": "100%",
+                    "height": "100%"
+                }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
+    </div>
+
+    <div class="px-4 md:px-14 lg:px-48 mt-46 w-full h-[35rem] text-center">
+        <h2 class="font-condensed text-black text-3xl px-8 leading-8 font-medium">Forex Heatmap</h2>
+        <p class="px-6 md:px-24 lg:px-80 mt-3 text-base leading-5 text-black">
+            See a snapshot of currency market action, spot strong and weak currencies and see how they compare to each other, all in real-time.
+        </p>
+
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container mt-6">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+                {
+                    "colorTheme": "light",
+                    "isTransparent": false,
+                    "locale": "en",
+                    "currencies": [
+                        "EUR",
+                        "USD",
+                        "JPY",
+                        "GBP",
+                        "CHF",
+                        "AUD",
+                        "CAD",
+                        "NZD",
+                        "CNY"
+                    ],
+                    "backgroundColor": "#ffffff",
+                    "width": "100%",
+                    "height": "100%"
+                }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
+    </div>
+
+    <div id="faqs" class="px-4 mt-46 md:px-14 lg:px-48 text-start w-full">
         <div class="text-start">
             <h2 class="font-condensed text-black text-3xl leading-8 font-medium">Frequently asked questions</h2>
         </div>
@@ -484,7 +594,8 @@
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
                     <p class="text-gray-600 dark:text-neutral-400">
-                        Your funds are 100% safe and secure. Your capital is always returned after each trade, and you can withdraw both capital and profits anytime with guaranteed withdrawals.
+                        Your funds are 100% safe and secure. Your capital is always returned after each trade, and you
+                        can withdraw both capital and profits anytime with guaranteed withdrawals.
                     </p>
                 </div>
             </div>
@@ -499,7 +610,8 @@
                 conditions, risk-free.</p>
             <div class="mt-10">
                 <a href="{{ route('register') }}"
-                    class="px-8 py-3 text-base font-semibold rounded-sm bg-[#00bcff] text-black">Create free account</a>
+                    class="px-8 py-3 text-base font-semibold rounded-sm bg-[#00bcff] text-black">Create free
+                    account</a>
             </div>
         </div>
     </div>
