@@ -1,0 +1,17 @@
+{
+  "public/assets/images/bg-hero.jpg": {
+    "file": "assets/bg-hero-Dk2mRLUb.jpg",
+    "src": "public/assets/images/bg-hero.jpg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-BlSJzxJQ.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DVRx0oem.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
