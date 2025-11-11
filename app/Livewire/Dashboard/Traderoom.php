@@ -9,16 +9,20 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 #[Layout('components.layouts.app')]
 class Traderoom extends Component
 {
+  #[Locked]
+  public $isProcessing = false;
+
   public ?Bot $activeBot = null;
 
   public ?int $timerCheckpoint = null;
 
-  public float $amount = 0;
+  public $amount = 0;
 
   public string $accountType = '';
 
@@ -26,7 +30,7 @@ class Traderoom extends Component
 
   public string $profitLimit = '';
 
-  public float $profit = 0;
+  public string $profit = '';
 
   public string $asset = '';
 
@@ -63,7 +67,7 @@ class Traderoom extends Component
     $this->accountType = $this->activeBot->account_type === 'demo' ? 'Demo account' : 'Live account';
     $this->strategy = $strategy->name;
     $this->profitLimit = $strategy->max_roi;
-    $this->profit = $this->normalizeAmount($this->activeBot->profit);
+    $this->profit = $this->activeBot->profit;
     $this->asset = $this->activeBot->asset;
     $this->assetIcon = $this->activeBot->asset_image_url;
     $this->sentiment = $this->activeBot->sentiment;
@@ -91,7 +95,7 @@ class Traderoom extends Component
       return;
     }
 
-    $this->profit = $this->normalizeAmount($this->activeBot->profit);
+    $this->profit = $this->activeBot->profit;
     $this->asset = $this->activeBot->asset;
     $this->assetIcon = $this->activeBot->asset_image_url;
     $this->sentiment = $this->activeBot->sentiment;
@@ -108,6 +112,12 @@ class Traderoom extends Component
   public function stopRobot(): void
   {
     try {
+      if ($this->isProcessing) {
+        return;
+      }
+
+      $this->isProcessing = true;
+
       DB::transaction(function () {
         // Lock the bot record for update to prevent race conditions
         $bot = Bot::where('id', $this->activeBot->id)
@@ -130,10 +140,10 @@ class Traderoom extends Component
 
         // Calculate new balance
         $balanceField = $bot->account_type === 'demo' ? 'demo_balance' : 'live_balance';
-        $currentBalance = $this->normalizeAmount($user->$balanceField);
-        $botAmount = $this->normalizeAmount($bot->amount);
-        $botProfit = $this->normalizeAmount($bot->profit);
-        $newBalance = $this->serializeAmount($currentBalance + $botAmount + $botProfit);
+        $currentBalance = $user->$balanceField;
+        $botAmount = $bot->amount;
+        $botProfit = $bot->profit;
+        $newBalance = $currentBalance + $botAmount + $botProfit;
 
         // Validate new balance is non-negative
         if ($newBalance < 0) {

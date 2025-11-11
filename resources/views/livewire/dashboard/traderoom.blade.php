@@ -10,7 +10,7 @@
                     <div class="mb-4">
                         <h2 class="text-white font-bold text-xl">@money($this->amount)</h2>
                         <p class="text-zinc-300 text-[13px]">Profit <span
-                                class="text-green-500">+@money($this->profit)</span></p>
+                                class="text-green-500">+@money($this->profit / 100)</span></p>
                     </div>
 
                     <div class="flex items-center space-x-3 border border-[#26252a] rounded-lg p-4 mb-4">
@@ -320,6 +320,7 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('traderoom', () => ({
+            isStoppingRobot: false,
             timer: '',
             timeLeft: {},
             timerInterval: null,
@@ -409,7 +410,7 @@
 
             refreshTimer() {
                 this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire
-                .timerCheckpoint);
+                    .timerCheckpoint);
                 this.asset = this.$wire.asset;
                 this.assetIcon = `/${this.$wire.assetIcon}`
                 this.sentiment = this.$wire.sentiment;

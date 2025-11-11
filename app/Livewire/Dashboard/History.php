@@ -10,32 +10,32 @@ use Livewire\Component;
 
 class History extends Component
 {
-    public $perPage = 10;
+  public $perPage = 10;
 
-    public $visibleCount;
+  public $visibleCount;
 
-    public $totalTrades;
+  public $totalTrades;
 
-    public function mount()
-    {
-        $this->totalTrades = Trade::where('user_id', auth()->user()->id)->count();
-        $this->visibleCount = min($this->perPage, $this->totalTrades);
-    }
+  public function mount()
+  {
+    $this->totalTrades = Trade::where('user_id', auth()->user()->id)->count();
+    $this->visibleCount = min($this->perPage, $this->totalTrades);
+  }
 
-    public function loadMore(): void
-    {
-        $this->visibleCount = min($this->visibleCount + $this->perPage, $this->totalTrades);
-    }
+  public function loadMore(): void
+  {
+    $this->visibleCount = min($this->visibleCount + $this->perPage, $this->totalTrades);
+  }
 
-    public function render()
-    {
-        $trades = Trade::where('user_id', auth()->user()->id)->latest()->take($this->visibleCount)->get();
+  public function render()
+  {
+    $trades = Trade::where('user_id', auth()->user()->id)->latest()->take($this->visibleCount)->get();
 
-        $showLoadMoreButton = $this->visibleCount < $this->totalTrades;
+    $showLoadMoreButton = $this->visibleCount < $this->totalTrades;
 
-        return view('livewire.dashboard.history', [
-            'trades' => $trades,
-            'showLoadMoreButton' => $showLoadMoreButton,
-        ]);
-    }
+    return view('livewire.dashboard.history', [
+      'trades' => $trades,
+      'showLoadMoreButton' => $showLoadMoreButton,
+    ]);
+  }
 }

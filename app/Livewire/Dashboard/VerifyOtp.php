@@ -142,7 +142,7 @@ class VerifyOtp extends Component
     }
   }
 
-  private function sendWithdrawalNotifications(User $user, Withdrawal $withdrawal): void
+  private function sendWithdrawalNotifications(User $user): void
   {
     // Queue notifications to avoid blocking the transaction
     $normalizedAmount = $this->normalizeAmount($this->amount);

@@ -716,18 +716,17 @@ class Robot extends Component
         return;
       }
 
-      $amount = floatval($this->amount);
+      $amount = $this->serializeAmount(floatval($this->amount));
       $assetToTrade = $this->generateAssetToTrade();
-      $profitLimit = (intval($this->strategy['max_roi']) / 100) * $amount;
+      $profitLimit = (intval($this->strategy['max_roi']) / 100) * $this->normalizeAmount($amount);
       $balanceToDebit = $this->accountTypeSlug === 'demo' ? 'demo_balance' : 'live_balance';
-      $currentBalance = $this->normalizeAmount(auth()->user()->{$balanceToDebit});
+      $currentBalance = auth()->user()->{$balanceToDebit};
       $newBalance = $currentBalance - $amount;
-      $serialized = $this->serializeAmount($newBalance);
 
-      DB::transaction(function () use ($amount, $serialized, $profitLimit, $assetToTrade, $balanceToDebit) {
+      DB::transaction(function () use ($amount, $newBalance, $profitLimit, $assetToTrade, $balanceToDebit) {
         Bot::create([
           'user_id' => auth()->user()->id,
-          'amount' => $this->serializeAmount($amount),
+          'amount' => $amount,
           'duration' => $this->duration,
           'strategy' => $this->strategy['id'],
           'account_type' => $this->accountTypeSlug,
@@ -744,7 +743,7 @@ class Robot extends Component
           'start' => strval(now()->getTimestampMs()),
           'end' => strval(now()->addHours(intval($this->strategy['duration']))->getTimestampMs())
         ]);
-        User::where('id', auth()->user()->id)->update([$balanceToDebit => $serialized]);
+        User::where('id', auth()->user()->id)->update([$balanceToDebit => $newBalance]);
       });
 
       session()->flash('message', 'Robot has started trading');
