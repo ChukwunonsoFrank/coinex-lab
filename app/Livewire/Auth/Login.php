@@ -36,43 +36,43 @@ class Login extends Component
   public function login()
   {
     try {
-      // if (is_null($this->gRecaptchaResponse)) {
-      //     $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
-      // }
-
-      // $recatpchaResponse = Http::get("https://www.google.com/recaptcha/api/siteverify", [
-      //     'secret' => config('services.recaptcha.secret'),
-      //     'response' => $this->gRecaptchaResponse
-      // ]);
-
-      // $result = $recatpchaResponse->json();
-
-      // if ($recatpchaResponse->successful() && $result['success'] == true) {
-      $this->validate();
-
-      $this->ensureIsNotRateLimited();
-
-      if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-        RateLimiter::hit($this->throttleKey());
-
-        throw ValidationException::withMessages([
-          'email' => __('auth.failed'),
-        ]);
+      if (is_null($this->gRecaptchaResponse)) {
+        $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
       }
 
-      RateLimiter::clear($this->throttleKey());
-      Session::regenerate();
+      $recatpchaResponse = Http::get("https://www.google.com/recaptcha/api/siteverify", [
+        'secret' => config('services.recaptcha.secret'),
+        'response' => $this->gRecaptchaResponse
+      ]);
 
-      session()->flash('just_logged_in', true);
+      $result = $recatpchaResponse->json();
 
-      if (Auth::user()->is_admin) {
-        return redirect('/admin/dashboard');
+      if ($recatpchaResponse->successful() && $result['success'] == true) {
+        $this->validate();
+
+        $this->ensureIsNotRateLimited();
+
+        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+          RateLimiter::hit($this->throttleKey());
+
+          throw ValidationException::withMessages([
+            'email' => __('auth.failed'),
+          ]);
+        }
+
+        RateLimiter::clear($this->throttleKey());
+        Session::regenerate();
+
+        session()->flash('just_logged_in', true);
+
+        if (Auth::user()->is_admin) {
+          return redirect('/admin/dashboard');
+        }
+
+        $this->redirectIntended(default: route('dashboard', absolute: false));
+      } else {
+        $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
       }
-
-      $this->redirectIntended(default: route('dashboard', absolute: false));
-      // } else {
-      //     $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
-      // }
     } catch (\Exception $e) {
       $this->dispatch('login-error', message: $e->getMessage())->self();
     }

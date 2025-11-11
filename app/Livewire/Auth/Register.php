@@ -63,61 +63,61 @@ class Register extends Component
   public function register()
   {
     try {
-      // if (is_null($this->gRecaptchaResponse)) {
-      //     $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
-      // }
+      if (is_null($this->gRecaptchaResponse)) {
+        $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
+      }
 
-      // $recatpchaResponse = Http::get("https://www.google.com/recaptcha/api/siteverify", [
-      //     'secret' => config('services.recaptcha.secret'),
-      //     'response' => $this->gRecaptchaResponse
-      // ]);
-
-      // $result = $recatpchaResponse->json();
-
-      // if ($recatpchaResponse->successful() && $result['success'] == true) {
-      $validated = $this->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-        'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
-        'termsAndPrivacyPolicyAccepted' => 'accepted',
+      $recatpchaResponse = Http::get("https://www.google.com/recaptcha/api/siteverify", [
+        'secret' => config('services.recaptcha.secret'),
+        'response' => $this->gRecaptchaResponse
       ]);
 
-      unset($validated['termsAndPrivacyPolicyAccepted']);
+      $result = $recatpchaResponse->json();
 
-      $validated['unhashed_password'] = $validated['password'];
-      $validated['password'] = Hash::make($validated['password']);
-      $validated['live_balance'] = 0;
-      $validated['demo_balance'] = 1000000;
-      $validated['account_status'] = 'active';
-      $validated['referral_code'] = $this->generateReferralCode();
+      if ($recatpchaResponse->successful() && $result['success'] == true) {
+        $validated = $this->validate([
+          'name' => ['required', 'string', 'max:255'],
+          'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+          'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+          'termsAndPrivacyPolicyAccepted' => 'accepted',
+        ]);
 
-      if ($this->ref) {
-        $validated['referred_by'] = $this->ref;
+        unset($validated['termsAndPrivacyPolicyAccepted']);
+
+        $validated['unhashed_password'] = $validated['password'];
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['live_balance'] = 0;
+        $validated['demo_balance'] = 1000000;
+        $validated['account_status'] = 'active';
+        $validated['referral_code'] = $this->generateReferralCode();
+
+        if ($this->ref) {
+          $validated['referred_by'] = $this->ref;
+        }
+
+        event(new Registered(($user = User::create($validated))));
+
+        /**
+         * Send notifications to respective correspondents.
+         */
+        $admin = User::where('is_admin', 1)->first();
+        $admin->notify(new UserRegistered($validated['email']));
+
+        $referralCodeOwner = User::where('referral_code', $this->ref)->first();
+
+        if ($referralCodeOwner) {
+          $referralCodeOwner->notify(new ReferralLinkApplied($referralCodeOwner->name, $user->name));
+        }
+
+        Auth::login($user);
+
+        session()->flash('just_registered', true);
+
+        $this->redirect(route('dashboard.robot', absolute: false), navigate: false);
+      } else {
+        $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
+        return redirect()->back();
       }
-
-      event(new Registered(($user = User::create($validated))));
-
-      /**
-       * Send notifications to respective correspondents.
-       */
-      $admin = User::where('is_admin', 1)->first();
-      $admin->notify(new UserRegistered($validated['email']));
-
-      $referralCodeOwner = User::where('referral_code', $this->ref)->first();
-
-      if ($referralCodeOwner) {
-        $referralCodeOwner->notify(new ReferralLinkApplied($referralCodeOwner->name, $user->name));
-      }
-
-      Auth::login($user);
-
-      session()->flash('just_registered', true);
-
-      $this->redirect(route('dashboard.robot', absolute: false), navigate: false);
-      // } else {
-      //     $this->dispatch('login-error', message: 'Please confirm you are not a robot.')->self();
-      //     return redirect()->back();
-      // }
     } catch (\Exception $e) {
       $this->dispatch('signup-error', message: $e->getMessage())->self();
     }
