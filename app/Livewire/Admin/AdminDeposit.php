@@ -45,6 +45,7 @@ class AdminDeposit extends Component
     // Reset properties
     $this->firstUpline = null;
     $this->secondUpline = null;
+    $this->thirdUpline = null;
     $this->level = 0;
 
     $currentUpline = User::where('referral_code', $referredBy)->first();
