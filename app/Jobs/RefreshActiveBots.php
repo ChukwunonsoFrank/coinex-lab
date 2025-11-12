@@ -143,7 +143,7 @@ class RefreshActiveBots implements ShouldQueue
         ->getTimestampMs();
       $profitPosition = $bot["profit_position"];
       $profit = json_decode($bot["profit_values"])[$profitPosition];
-      $updatedTotalProfit = $this->normalizeAmount($bot["profit"]) + $profit;
+      $updatedTotalProfit = $bot["profit"] + $this->serializeAmount($profit);
 
       DB::transaction(function () use (
         $bot,
@@ -177,7 +177,7 @@ class RefreshActiveBots implements ShouldQueue
         $lockedBot->asset_image_url = $assetToTrade["image_url"];
         $lockedBot->sentiment = $assetToTrade["sentiment"];
         $lockedBot->timer_checkpoint = strval($newCheckpoint);
-        $lockedBot->profit = $this->serializeAmount($updatedTotalProfit);
+        $lockedBot->profit = $updatedTotalProfit;
         $lockedBot->profit_position = $profitPosition + 1;
         $lockedBot->save();
       });
