@@ -85,22 +85,22 @@ class AdminDeposit extends Component
 
   private function payoutLevel1(float $depositAmount, string $referralCode, string $depositOwnerName)
   {
-    $commission = round(0.05 * floatval($depositAmount), 2);
+    $commission = intval(round($depositAmount * (5 / 100)));
 
     // Lock the user row for update to prevent race conditions
     $firstUpline = User::where('id', $this->firstUpline['id'])->lockForUpdate()->first();
-    $newFirstUplineBalance = (($firstUpline->live_balance / 100) + $commission) * 100;
+    $newFirstUplineBalance = $firstUpline->live_balance + $commission;
 
     $firstUpline->update(['live_balance' => $newFirstUplineBalance]);
 
     Referral::create([
       'user_id' => $firstUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '1'
     ]);
 
-    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission)));
+    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission / 100)));
   }
 
   private function payoutLevel2(float $depositAmount, string $referralCode, string $depositOwnerName)
@@ -110,34 +110,34 @@ class AdminDeposit extends Component
     $firstUpline = User::where('id', $this->firstUpline['id'])->lockForUpdate()->first();
 
     // Middle upline commission (5%)
-    $commission = round(0.05 * floatval($depositAmount), 2);
-    $newSecondUplineBalance = (($secondUpline->live_balance / 100) + $commission) * 100;
+    $commission = intval(round($depositAmount * (5 / 100)));
+    $newSecondUplineBalance = $secondUpline->live_balance + $commission;
 
     $secondUpline->update(['live_balance' => $newSecondUplineBalance]);
 
     Referral::create([
       'user_id' => $secondUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '1'
     ]);
 
-    $secondUpline->notify(new CommissionEarned($secondUpline->name, $depositOwnerName, strval($commission)));
+    $secondUpline->notify(new CommissionEarned($secondUpline->name, $depositOwnerName, strval($commission / 100)));
 
     // First upline commission (2%)
-    $commission = round(0.02 * floatval($depositAmount), 2);
-    $newFirstUplineBalance = (($firstUpline->live_balance / 100) + $commission) * 100;
+    $commission = intval(round($depositAmount * (2 / 100)));
+    $newFirstUplineBalance = $firstUpline->live_balance + $commission;
 
     $firstUpline->update(['live_balance' => $newFirstUplineBalance]);
 
     Referral::create([
       'user_id' => $firstUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '2'
     ]);
 
-    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission)));
+    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission / 100)));
   }
 
   private function payoutLevel3(float $depositAmount, string $referralCode, string $depositOwnerName)
@@ -148,49 +148,49 @@ class AdminDeposit extends Component
     $thirdUpline = User::where('id', $this->thirdUpline['id'])->lockForUpdate()->first();
 
     // Top upline commission (1%)
-    $commission = round(0.01 * floatval($depositAmount), 2);
-    $newFirstUplineBalance = (($firstUpline->live_balance / 100) + $commission) * 100;
+    $commission = intval(round($depositAmount * (1 / 100)));
+    $newFirstUplineBalance = $firstUpline->live_balance + $commission;
 
     $firstUpline->update(['live_balance' => $newFirstUplineBalance]);
 
     Referral::create([
       'user_id' => $firstUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '3'
     ]);
 
-    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission)));
+    $firstUpline->notify(new CommissionEarned($firstUpline->name, $depositOwnerName, strval($commission / 100)));
 
     // Middle upline commission (2%)
-    $commission = round(0.02 * floatval($depositAmount), 2);
-    $newSecondUplineBalance = (($secondUpline->live_balance / 100) + $commission) * 100;
+    $commission = intval(round($depositAmount * (2 / 100)));
+    $newSecondUplineBalance = $secondUpline->live_balance + $commission;
 
     $secondUpline->update(['live_balance' => $newSecondUplineBalance]);
 
     Referral::create([
       'user_id' => $secondUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '2'
     ]);
 
-    $secondUpline->notify(new CommissionEarned($secondUpline->name, $depositOwnerName, strval($commission)));
+    $secondUpline->notify(new CommissionEarned($secondUpline->name, $depositOwnerName, strval($commission / 100)));
 
     // Last upline commission (5%)
-    $commission = round(0.05 * floatval($depositAmount), 2);
-    $newThirdUplineBalance = (($thirdUpline->live_balance / 100) + $commission) * 100;
+    $commission = intval(round($depositAmount * (5 / 100)));
+    $newThirdUplineBalance = $thirdUpline->live_balance + $commission;
 
     $thirdUpline->update(['live_balance' => $newThirdUplineBalance]);
 
     Referral::create([
       'user_id' => $thirdUpline->id,
       'referral_code' => $referralCode,
-      'amount' => $commission * 100,
+      'amount' => $commission,
       'level' => '1'
     ]);
 
-    $thirdUpline->notify(new CommissionEarned($thirdUpline->name, $depositOwnerName, strval($commission)));
+    $thirdUpline->notify(new CommissionEarned($thirdUpline->name, $depositOwnerName, strval($commission / 100)));
   }
 
   public function approveDeposit(int $depositId, int $userId, int $amount)
