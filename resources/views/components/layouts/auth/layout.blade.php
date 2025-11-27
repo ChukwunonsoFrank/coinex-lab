@@ -25,7 +25,7 @@
             Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id')).set('gRecaptchaResponse', token);
         }
     </script>
-    
+
     @livewireStyles
     @vite('resources/css/app.css')
 
@@ -34,7 +34,19 @@
             display: none !important;
         }
     </style>
-    <script src="//code.jivosite.com/widget/haRE265EfB" async></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6928655c810e98195be1b968/1jb2snt4u';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </head>
 
 <body>
